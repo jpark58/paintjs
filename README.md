@@ -28,9 +28,30 @@ We will use this Canvas API to draw a figure on our own cavas.
    canvas.height = 700;
    ```
 
-3. To change color of line, we will get color property from a mouse event. So, get a collection of color class and put them into an arrray with an event listener.
-   ```
-   Array.from(colors).forEach((color) =>
-   color.addEventListener("click", handleColorClick)
-   );
-   ```
+---
+
+## Changing Color
+
+To change color of line, we will get color property from a mouse event. So, get a collection of color class and put them into an arrray with an event listener.
+
+```
+Array.from(colors).forEach((color) =>
+color.addEventListener("click", handleColorClick)
+);
+
+function handleColorClick(event) {
+const color = event.target.style.backgroundColor;
+ctx.strokeStyle = color;
+}
+```
+
+## Changing Brush Size
+
+Same as above, get range element from HTML and add an event listener to it. Then, override the "lineWidth".
+
+```
+function handleRangeChange(event) {
+  const size = event.target.value;
+  ctx.lineWidth = size;
+}
+```

@@ -45,6 +45,8 @@ ctx.strokeStyle = color;
 }
 ```
 
+---
+
 ## Changing Brush Size
 
 Same as above, get range element from HTML and add an event listener to it. Then, override the "lineWidth".
@@ -55,3 +57,42 @@ function handleRangeChange(event) {
   ctx.lineWidth = size;
 }
 ```
+
+---
+
+## Filling The Canvas
+
+1. If a user clicks the mode button, it will call "handleModeClick".
+   ```
+   if (mode) {
+   mode.addEventListener("click", handleModeClick);
+   }
+   ```
+2. When the button is clicked, change the function of button.
+   ```
+   function handleModeClick() {
+   if (filling === true) {
+       filling = false;
+       mode.innerText = "Fill";
+   } else {
+       filling = true;
+       mode.innerText = "Paint";
+   }
+   }
+   ```
+3. When a user clicks a color, the color will be set to "fillStyle".
+   ```
+   function handleColorClick(event) {
+   const color = event.target.style.backgroundColor;
+   ctx.strokeStyle = color;
+   ctx.fillStyle = color;
+   }
+   ```
+4. Then finally fill in the canvas with color.
+   ```
+   function handleCanvasClick() {
+   if (filling) {
+       ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+   }
+   }
+   ```

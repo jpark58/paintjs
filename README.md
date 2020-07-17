@@ -1,5 +1,10 @@
 # Painting Board made with VanillaJS
 
+## Output
+
+Link: https://jpark58.github.io/paintjs/  
+<img src="https://user-images.githubusercontent.com/48766032/87740051-38743200-c81c-11ea-89bb-adc2b05511ec.png" width=400>
+
 ## Canvas API
 
 You can refer to below link.  
